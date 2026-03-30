@@ -1,0 +1,350 @@
+/* Netflix-inspired styles */
+
+:root {
+    --bg: #141414;
+    --text: #ffffff;
+    --muted: #b3b3b3;
+    --card: rgba(255, 255, 255, 0.08);
+    --accent: #e50914;
+    --shadow: 0 10px 15px rgba(229, 9, 20, 0.5);
+}
+
+[data-theme="light"] {
+    --bg: #f7f7f7;
+    --text: #111111;
+    --muted: #171717;
+    --card: rgba(0, 0, 0, 0.06);
+    --accent: #e50914;
+    --shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+[data-theme="light"] header p {
+    color: #525252;
+}
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Arimo', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    text-align: center;
+    max-width: 90vw;
+    width: min(90vw, 72rem);
+}
+
+header h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    margin: 2rem 0 0.25rem 0; 
+    font-weight: 700;
+}
+
+header p {
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 3.25rem;
+    height: 2rem;
+    background: transparent;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    z-index: 999;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#theme-toggle .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+#theme-toggle .toggle-track {
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+    width: 3rem;
+    height: 1.7rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    transition: background-color 0.2s ease;
+}
+
+#theme-toggle .toggle-thumb {
+    width: 1.125rem;
+    height: 1.125rem;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+[data-theme="light"] #theme-toggle {
+    border-color: rgba(34, 34, 34, 0.3);
+}
+
+[data-theme="light"] #theme-toggle .toggle-track {
+    background: rgba(34, 34, 34, 0.2);
+}
+
+[data-theme="light"] #theme-toggle .toggle-thumb {
+    transform: translateX(22px);
+    background: #000000;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] #theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+    #theme-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 3rem;
+        height: 1.75rem;
+    }
+
+    #theme-toggle .toggle-track {
+        width: 2.5rem;
+        height: 1.25rem;
+    }
+
+    #theme-toggle .toggle-thumb {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #theme-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 2.75rem;
+        height: 1.75rem;
+    }
+
+    #theme-toggle .toggle-track {
+        width: 2.25rem;
+        height: 1.125rem;
+    }
+
+    #theme-toggle .toggle-thumb {
+        width: 0.875rem;
+        height: 0.875rem;
+    }
+}
+
+.profiles ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile {
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+
+.profile a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile figure {
+    margin: 0;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.profile:hover img {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.profile figcaption {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+main {
+    text-align: center; /* Alinha o texto ao centro */
+    max-width: 1200px; /* Define a largura máxima do main */
+    width: 100%; /* Define a largura como 100% do container pai */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Define o tamanho da fonte como 3 vezes o tamanho padrão */
+    margin-bottom: 0.5rem; /* Define margem inferior de 0.5rem */
+    font-weight: 700; /* Define o peso da fonte como negrito (bold) */
+}
+
+header p {
+    font-size: 1.2rem; /* Define o tamanho da fonte como 1.2 vezes o padrão */
+    color: #b3b3b3; /* Define a cor do texto como cinza claro */
+    margin-bottom: 3rem; /* Define margem inferior de 3rem */
+}
+
+.profiles ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove preenchimento interno */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: center; /* Centraliza horizontalmente os itens */
+    gap: 2rem; /* Define espaço entre os itens de 2rem */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
+}
+
+.profile {
+    transition: transform 0.3s ease; /* Adiciona transição suave para transformações, duração de 0.3s com easing */
+}
+
+.profile:hover {
+    transform: scale(1.05); /* Aumenta o tamanho do elemento em 5% no hover */
+}
+
+.profile a {
+    text-decoration: none; /* Remove sublinhado dos links */
+    color: inherit; /* Herda a cor do texto do elemento pai */
+}
+
+.profile figure {
+    margin: 0; /* Remove margens da figura */
+}
+
+.profile img {
+    width: 150px; /* Define largura da imagem como 150px */
+    height: 150px; /* Define altura da imagem como 150px */
+    border-radius: 10px; /* Arredonda os cantos da imagem em 8px */
+    object-fit: cover; /* Ajusta a imagem para cobrir o container sem distorcer */
+    border: 3px solid transparent; /* Define borda transparente de 3px */
+    transition: border-color 0.2s ease; /* Adiciona transição para cor da borda e filtro */
+}
+
+.profile:hover img {
+    border-color: #e50914; /* Muda a cor da borda para vermelho Netflix no hover */
+    box-shadow: 0 10px 15px rgba(229, 9, 20, 0.5); /* Adiciona sombra vermelha ao redor da imagem no hover */
+}
+
+.profile figcaption {
+    margin-top: 1rem; /* Define margem superior de 1rem */
+    font-size: 1.1rem; /* Define tamanho da fonte como 1.1rem */
+    font-weight: 500; /* Define peso da fonte como médio */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    main {
+        padding: 0 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .profile img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding-top: 2rem;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .profiles ul {
+        gap: 1rem;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        margin-bottom: 5rem; /* Adiciona margem inferior para evitar sobreposição com o rodapé em telas pequenas */
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    header p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .profile {
+        text-align: center;
+        justify-content: center;
+        margin: 0 1rem 3rem 1rem; /* Adiciona margem inferior para evitar sobreposição com o rodapé em telas pequenas */
+    }
+
+    .profiles ul {
+        gap: 0.75rem;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile figcaption {
+        font-size: 1rem;
+    }
+}
